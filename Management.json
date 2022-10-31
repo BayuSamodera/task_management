@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "3d4b108c-56d1-4887-b9f7-c1ff3a7d89ee",
+		"name": "Management Collection",
+		"description": "Collection untuk API Task Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24013037"
+	},
+	"item": [
+		{
+			"name": "Task Management",
+			"item": [
+				{
+					"name": "Delete Categories",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/categories/index/id/13",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"categories",
+								"index",
+								"id",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/categories/list",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"categories",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bayu R\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/categories/update/id/3",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"categories",
+								"update",
+								"id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Categories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Agung Ramadhani\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/latihan/categories/index",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"latihan",
+								"categories",
+								"index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/tasks/list",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tasks",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base}}/tasks/index/id/4",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"index",
+								"id",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tasks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Assignment PHP\",\r\n    \"description\": \"Create Crud using PHP Native\",\r\n    \"start_date\": \"2022-10-28\",\r\n    \"finish_date\": \"2022-10-31\",\r\n    \"status\": \"New\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/tasks/update/id/5",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"update",
+								"id",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Tasks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"category_id\": 1,\r\n    \"title\": \"Assignment PHP\",\r\n    \"description\": \"Create Crud using PHP Native\",\r\n    \"start_date\": \"2022-10-28\",\r\n    \"finish_date\": \"2022-10-31\",\r\n    \"status\": \"New\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/tasks/index",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"tasks",
+								"index"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Folder untuk collection API data task management yang meliputi :\n\n- Data Tasks\n- Data Task Categories"
+		}
+	]
+}

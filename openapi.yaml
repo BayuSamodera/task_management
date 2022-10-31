@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: Management Collection
+  description: Collection untuk API Task Management
+  
+  contact:
+    email: bayusamodera7@gmail.com
+  version: 1.0.11
+servers:
+  - url: http://localhost/latihan/
+tags:
+- name: Task Management
+  description: >-
+    Folder untuk collection API data task management yang meliputi :
+
+
+    - Data Tasks
+
+    - Data Task Categories
+
+paths:
+  /categories/list:
+    get:
+      tags: 
+        - Task Management
+      summary: Get Task Categories
+      description: API untuk mendapatkan data Categories
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/categories'
+        '405':
+          description: Invalid input
+  /categories/index:
+    post:
+      tags:
+        - Task Management
+      summary: Create Task Categories
+      description: This can only be done by the logged in Task Categories.
+      operationId: createTaskcategories
+      requestBody:
+        description: Created Task Categories object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/categories'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/categories'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/categories'
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/categories'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/categories'
+  
+  /categories/update/id/{id}:
+    post:
+      tags:
+        - Task Management
+      summary: Update Task Categories
+      description: This can only be done by the logged in Task Categories.
+      operationId: updateTaskcategories
+      parameters:
+        - name: id
+          in: path
+          description: id that need to be update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Update an existent Task Categories in Task Management
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/categories'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/categories'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/categories'
+      responses:
+        default:
+          description: successful operation
+    
+  /categories/index/id/{id}:
+    delete:
+      tags:
+        - Task Management
+      summary: Delete Task Categories
+      description: This can only be done by the logged in Task Categories.
+      operationId: deleteCategories
+      parameters:
+        - name: id
+          in: path
+          description: The id that needs to be deleted
+          required: true
+          schema:
+            type: integer
+      responses:
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
+      
+  
+  /tasks/list:
+    get:
+      tags: 
+        - Task Management
+      summary: Get Task
+      description: API untuk mendapatkan data tasks
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tasks'
+        '405':
+          description: Invalid input
+          
+  /tasks/index:
+    post:
+      tags:
+        - Task Management
+      summary: Create Tasks
+      description: This can only be done by the logged in tasks.
+      operationId: createTasks
+      requestBody:
+        description: Created Tasks object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tasks'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/tasks'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/tasks'
+      responses:
+        default:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tasks'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/tasks'
+  
+  /tasks/update/id/{id}:
+    post:
+      tags:
+        - Task Management
+      summary: Update Tasks
+      description: This can only be done by the logged in Tasks.
+      operationId: updateTasks
+      parameters:
+        - name: id
+          in: path
+          description: name that need to be deleted
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Update an existent user in the store
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tasks'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/tasks'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/tasks'
+      responses:
+        default:
+          description: successful operation
+  
+  /tasks/index/id/{id}:
+    delete:
+      tags:
+        - Task Management
+      summary: Delete Task
+      description: This can only be done by the logged in tasks.
+      operationId: deleteTasks
+      parameters:
+        - name: id
+          in: path
+          description: The id that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid id supplied
+        '404':
+          description: User not found
+          
+          
+components:
+  schemas:
+    categories:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    
+    tasks:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        category_id:
+          type: integer
+          format: int64
+        title:
+          type: string
+          example: Assignment PHP
+        description:
+          type: string
+          example: Create Crud using PHP Native
+        start_date:
+          type: string
+          example: 2022-10-28
+        finish_date:
+          type: string
+          example: 2022-10-30
+        status:
+          type: string
+          example: New
+          
+          
+      
+
+  
